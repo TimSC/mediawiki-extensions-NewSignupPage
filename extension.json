@@ -11,7 +11,8 @@
 	"config": {
 		"RegisterTrack": false,
 		"AutoAddFriendOnInvite": false,
-		"ForceNewSignupPageInitialization": false
+		"ForceNewSignupPageInitialization": false,
+		"NspForceAnonEditExplicitAccept": true
 	},
 	"MessagesDirs": {
 		"NewSignupPage": [
@@ -31,9 +32,9 @@
 		}
 	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"NewSignupPage::onBeforePageDisplay"
-		]
+		"BeforePageDisplay": "NewSignupPage::onBeforePageDisplay",
+		"EditPageBeforeEditButtons": "NewSignupPage::onEditPageBeforeEditButtons",
+		"EditFilter": "NewSignupPage::onEditFilter"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",

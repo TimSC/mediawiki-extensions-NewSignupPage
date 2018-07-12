@@ -23,6 +23,7 @@ class NewSignupPage {
 		$context = $out;
 		$title = $context->getTitle();
 		$request = $context->getRequest();
+		$user = $context->getUser();
 
 		// Only do our magic if we're on the signup page
 		if ( $title->isSpecial( 'CreateAccount' ) ) {
@@ -50,4 +51,34 @@ class NewSignupPage {
 		return true;
 	}
 
+	static function onEditPageBeforeEditButtons( $editpage, $buttons, $tabindex ) {
+
+		global $wgNspForceAnonEditExplicitAccept;
+		if(!$wgNspForceAnonEditExplicitAccept) return;
+
+		$context = $editpage->getArticle()->getContext();
+		$user = $context->getUser();
+		if($user->isAnon())
+		{
+			$out = $context->getOutput();
+			$out->addHTML( "<input type=\"checkbox\" name=\"accept-tos\"> ".wfMessage( "shoutwiki-anonedit-tos" )->parse()."<br>" );
+		}
+	}
+
+	static function onEditFilter( $editor, $text, $section, &$error, $summary )
+	{
+		global $wgNspForceAnonEditExplicitAccept;
+		if(!$wgNspForceAnonEditExplicitAccept) return true;
+
+		$context = $editor->getArticle()->getContext();
+		$request = $context->getRequest();
+		$user = $context->getUser();
+		if($user->isAnon() and !$request->getBool('accept-tos'))
+		{
+			$error = "{{warning|".wfMessage( "shoutwiki-anonedit-must-accept-tos" )->parse()."}}";
+
+			return true;
+		}
+		return true;
+	}
 }
