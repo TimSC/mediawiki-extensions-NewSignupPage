@@ -10,6 +10,8 @@
  * @copyright Copyright © 2008-2017 Jack Phoenix
  * @license GPL-2.0-or-later
  */
+require_once('PrivacySettings.class.php');
+
 class NewSignupPage {
 
 	/**
@@ -85,10 +87,19 @@ class NewSignupPage {
 	static function onLocalUserCreated( $user, $autocreated )
 	{
 		global $wgNspExplicitAddToAcceptGroup;
-		if(is_string($wgNspExplicitAddToAcceptGroup) and !$autocreated)
+		if($wgNspExplicitAddToAcceptGroup and !$autocreated)
 		{
+			$oldGroups = $user->getGroups();
+			$oldUGMs = $user->getGroupMemberships();
+
 			// https://stackoverflow.com/a/39891374
 			$user->addGroup( "TOS Accepted" );
+
+			$newGroups = $user->getGroups();
+			$newUGMs = $user->getGroupMemberships();
+
+			PrivacySettingsExt::addLogEntry( $user, $oldGroups, $newGroups, 
+				"User accepted terms of service on account creation", array(), $oldUGMs, $newUGMs);
 		}
 	}
 	

@@ -29,7 +29,7 @@ class PrivacySettingsExt extends SpecialPage {
 			$newGroups = $user->getGroups();
 			$newUGMs = $user->getGroupMemberships();
 
-			$this->addLogEntry( $user, $oldGroups, $newGroups, 
+			self::addLogEntry( $user, $oldGroups, $newGroups, 
 				"User accepted terms of service", array(), $oldUGMs, $newUGMs);
 
 		}
@@ -45,7 +45,7 @@ class PrivacySettingsExt extends SpecialPage {
 			$newGroups = $user->getGroups();
 			$newUGMs = $user->getGroupMemberships();
 
-			$this->addLogEntry( $user, $oldGroups, $newGroups, 
+			self::addLogEntry( $user, $oldGroups, $newGroups, 
 				"User rejected terms of service", array(), $oldUGMs, $newUGMs);
 		}
 		else	
@@ -82,7 +82,7 @@ class PrivacySettingsExt extends SpecialPage {
 	 * @param array $newUGMs Associative array of (group name => UserGroupMembership)
 	 */
 
-	protected function addLogEntry( $user, $oldGroups, $newGroups, $reason, $tags,
+	public static function addLogEntry( $user, $oldGroups, $newGroups, $reason, $tags,
 		$oldUGMs, $newUGMs
 	) {
 		// make sure $oldUGMs and $newUGMs are in the same order, and serialise
@@ -99,7 +99,7 @@ class PrivacySettingsExt extends SpecialPage {
 		}, $newGroups );
 
 		$logEntry = new ManualLogEntry( 'rights', 'rights' );
-		$logEntry->setPerformer( $this->getUser() );
+		$logEntry->setPerformer( $user );
 		$logEntry->setTarget( $user->getUserPage() );
 		$logEntry->setComment( $reason );
 		$logEntry->setParameters( [
