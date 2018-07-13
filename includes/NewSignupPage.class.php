@@ -100,5 +100,6 @@ class NewSignupPage {
 		if(!$user->isAnon() and !in_array("TOS Accepted", $user->getGroups()))
 			$out->addWikitext( "{{warning|".wfMessage( "privacy-settings-remind-existing-user" )->parse()."}}" );
 	}
+
 }
 
