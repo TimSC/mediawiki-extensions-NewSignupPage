@@ -8,5 +8,9 @@
 	"shoutwiki-must-accept-tos": "Error message displayed to the user in Special:UserLogin/signup in a fancy red <code>&lt;div&gt;</code> if they don't check the \"I accept the Terms of Service\" checkbox",
 	"shoutwiki-anonedit-tos": "The text for the new checkbox which is displayed about the edit buttons, for anonymous user to accept the terms of service.",
 	"shoutwiki-anonedit-must-accept-tos": "Error message in the edit page, for anonymous users, if they don't check the \"I accept the Terms of Service\" checkbox",
-	"right-bypasstoscheck": "{{doc-right|bypasstoscheck}}"
+	"right-bypasstoscheck": "{{doc-right|bypasstoscheck}}",
+
+    "privacy-settings": "The name of the extension's entry in Special:SpecialPages",
+    "privacy-settings-summary": "Description appearing on top of <tvar|1>Special:Privacy-settings</>.",
+    "privacy-settings-review": "The text at the top of Special:Privacy-settings, telling the user to view their settings"
 }

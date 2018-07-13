@@ -81,4 +81,15 @@ class NewSignupPage {
 		}
 		return true;
 	}
+
+	static function onLocalUserCreated( $user, $autocreated )
+	{
+		global $wgNspExplicitAddToAcceptGroup;
+		if(is_string($wgNspExplicitAddToAcceptGroup) and !$autocreated)
+		{
+			// https://stackoverflow.com/a/39891374
+			$user->addGroup( "TOS Accepted" );
+		}
+	}
 }
+

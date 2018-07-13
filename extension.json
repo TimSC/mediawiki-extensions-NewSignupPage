@@ -12,7 +12,8 @@
 		"RegisterTrack": false,
 		"AutoAddFriendOnInvite": false,
 		"ForceNewSignupPageInitialization": false,
-		"NspForceAnonEditExplicitAccept": true
+		"NspForceAnonEditExplicitAccept": true,
+		"NspExplicitAddToAcceptGroup": true
 	},
 	"MessagesDirs": {
 		"NewSignupPage": [
@@ -22,7 +23,11 @@
 	"AutoloadClasses": {
 		"NewSignupPage": "includes/NewSignupPage.class.php",
 		"NewSignupPageAuthenticationRequest": "includes/auth/NewSignupPageAuthenticationRequest.php",
-		"NewSignupPageSecondaryAuthenticationProvider": "includes/auth/NewSignupPageSecondaryAuthenticationProvider.php"
+		"NewSignupPageSecondaryAuthenticationProvider": "includes/auth/NewSignupPageSecondaryAuthenticationProvider.php",
+		"PrivacySettingsExt": "includes/PrivacySettings.class.php"
+	},
+	"SpecialPages": {
+		"privacy-settings": "PrivacySettingsExt"
 	},
 	"AuthManagerAutoConfig": {
 		"secondaryauth": {
@@ -34,7 +39,8 @@
 	"Hooks": {
 		"BeforePageDisplay": "NewSignupPage::onBeforePageDisplay",
 		"EditPageBeforeEditButtons": "NewSignupPage::onEditPageBeforeEditButtons",
-		"EditFilter": "NewSignupPage::onEditFilter"
+		"EditFilter": "NewSignupPage::onEditFilter",
+		"LocalUserCreated": "NewSignupPage::onLocalUserCreated"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
@@ -49,7 +55,9 @@
 		}
 	},
 	"AvailableRights": [
-		"bypasstoscheck"
+		"bypasstoscheck",
+		"TOS Accepted",
+		"TOS Rejected"
 	],
 	"manifest_version": 1
 }
