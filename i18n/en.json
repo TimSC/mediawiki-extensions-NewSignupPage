@@ -12,5 +12,6 @@
 
     "privacy-settings": "Privacy settings",
     "privacy-settings-summary": "Control user privacy settings",
-    "privacy-settings-review": "I am over 13 years of age and I have read, understood and agree to be bound by the [http://www.shoutwiki.com/wiki/Terms_of_use Terms of Service] and [http://www.shoutwiki.com/wiki/Privacy_policy Privacy Policy]"
+    "privacy-settings-review": "I am over 13 years of age and I have read, understood and agree to be bound by the [http://www.shoutwiki.com/wiki/Terms_of_use Terms of Service] and [http://www.shoutwiki.com/wiki/Privacy_policy Privacy Policy]",
+	"privacy-settings-remind-existing-user": "You should review the terms of service before continuing to use this website."
 }

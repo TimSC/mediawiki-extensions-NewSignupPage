@@ -91,5 +91,14 @@ class NewSignupPage {
 			$user->addGroup( "TOS Accepted" );
 		}
 	}
+	
+	static function onArticleViewHeader( &$article, &$outputDone, &$pcache )
+	{
+		$context = $article->getContext();
+		$out = $context->getOutput();
+		$user = $context->getUser();
+		if(!$user->isAnon() and !in_array("TOS Accepted", $user->getGroups()))
+			$out->addWikitext( "{{warning|".wfMessage( "privacy-settings-remind-existing-user" )->parse()."}}" );
+	}
 }
 

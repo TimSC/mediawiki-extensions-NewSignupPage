@@ -12,5 +12,6 @@
 
     "privacy-settings": "The name of the extension's entry in Special:SpecialPages",
     "privacy-settings-summary": "Description appearing on top of <tvar|1>Special:Privacy-settings</>.",
-    "privacy-settings-review": "The text at the top of Special:Privacy-settings, telling the user to view their settings"
+    "privacy-settings-review": "The text at the top of Special:Privacy-settings, telling the user to view their settings",
+	"privacy-settings-remind-existing-user": "Shown at the top of article pages for logged in users that have not accepted the terms of service."
 }

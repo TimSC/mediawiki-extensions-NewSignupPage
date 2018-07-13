@@ -40,7 +40,8 @@
 		"BeforePageDisplay": "NewSignupPage::onBeforePageDisplay",
 		"EditPageBeforeEditButtons": "NewSignupPage::onEditPageBeforeEditButtons",
 		"EditFilter": "NewSignupPage::onEditFilter",
-		"LocalUserCreated": "NewSignupPage::onLocalUserCreated"
+		"LocalUserCreated": "NewSignupPage::onLocalUserCreated",
+		"ArticleViewHeader": "NewSignupPage::onArticleViewHeader"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
